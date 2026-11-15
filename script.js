@@ -28,8 +28,8 @@ let realPosition = 0;
 let answered = false;
 
 function updateStats(completed) {
-  roundHeading.innerHTML = `Round ${String(Math.min(roundIndex + 1, rounds.length)).padStart(2, "0")} <span>/ ${rounds.length}</span>`;
-  scoreDisplay.innerHTML = `${score} <span>/ ${rounds.length}</span>`;
+  roundHeading.innerHTML = `סיבוב <bdi dir="ltr">${String(Math.min(roundIndex + 1, rounds.length)).padStart(2, "0")} <span>/ ${rounds.length}</span></bdi>`;
+  scoreDisplay.innerHTML = `<bdi dir="ltr">${score} <span>/ ${rounds.length}</span></bdi>`;
   progress.setAttribute("aria-valuenow", completed);
   progressFill.style.width = `${completed / rounds.length * 100}%`;
 }
@@ -46,16 +46,16 @@ function showRound() {
     if (imagePath) {
       const image = document.createElement("img");
       image.src = imagePath;
-      image.alt = `Option ${index === 0 ? "A" : "B"}`;
+      image.alt = `אפשרות ${index === 0 ? "א" : "ב"}`;
       imageContainer.append(image);
     } else {
-      imageContainer.textContent = isReal ? "REAL" : "AI";
+      imageContainer.textContent = isReal ? "אמיתי" : "בינה מלאכותית";
     }
     choice.disabled = false;
     choice.classList.remove("correct", "incorrect");
-    choice.setAttribute("aria-label", `Choose option ${index === 0 ? "A" : "B"} as the real image${imagePath ? "" : `, placeholder ${isReal ? "real" : "AI"}`}`);
+    choice.setAttribute("aria-label", `בחירת אפשרות ${index === 0 ? "א" : "ב"} כתמונה האמיתית${imagePath ? "" : `, מציין מקום: ${isReal ? "אמיתי" : "בינה מלאכותית"}`}`);
   });
-  feedback.textContent = "Trust your eyes. Choose the real one.";
+  feedback.textContent = "סמכו על העיניים שלכם ובחרו בתמונה האמיתית.";
   feedback.classList.remove("answered");
   nextButton.hidden = true;
   updateStats(roundIndex);
@@ -71,9 +71,9 @@ function choose(index) {
     if (choiceIndex === realPosition) choice.classList.add("correct");
     else if (choiceIndex === index) choice.classList.add("incorrect");
   });
-  feedback.textContent = correct ? "Nice eye! You found the real one." : "Not quite! The highlighted one is real.";
+  feedback.textContent = correct ? "כל הכבוד! מצאתם את התמונה האמיתית." : "לא הפעם! התמונה המודגשת היא האמיתית.";
   feedback.classList.add("answered");
-  nextButton.textContent = roundIndex === rounds.length - 1 ? "See results →" : "Next round →";
+  nextButton.textContent = roundIndex === rounds.length - 1 ? "לתוצאות ←" : "לסיבוב הבא ←";
   nextButton.hidden = false;
   updateStats(roundIndex + 1);
 }
@@ -82,11 +82,11 @@ function showResult() {
   const won = score >= 6;
   playArea.hidden = true;
   result.hidden = false;
-  document.querySelector("#result-label").textContent = won ? "CHALLENGE COMPLETE" : "CHALLENGE FINISHED";
-  document.querySelector("#result-title").textContent = won ? "You’ve got the eye." : "Good try!";
+  document.querySelector("#result-label").textContent = won ? "האתגר הושלם" : "המשחק הסתיים";
+  document.querySelector("#result-title").textContent = won ? "יש לכם עין חדה!" : "ניסיון יפה!";
   document.querySelector("#result-message").textContent = won
-    ? `You got ${score} out of ${rounds.length} right. Your powers of observation have earned you a number.`
-    : `You got ${score} out of ${rounds.length} right. You need at least 6 to reveal the number.`;
+    ? `עניתם נכון על ${score} מתוך ${rounds.length}. בזכות העין החדה שלכם זכיתם במספר.`
+    : `עניתם נכון על ${score} מתוך ${rounds.length}. צריך לפחות 6 תשובות נכונות כדי לגלות את המספר.`;
   prize.hidden = !won;
   document.querySelector("#restart-button").focus();
 }

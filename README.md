@@ -11,7 +11,7 @@ A static guessing game: choose the real picture in each of 10 rounds. Get at lea
    { real: "images/round-1-real.jpg", ai: "images/round-1-ai.jpg" },
    ```
 
-3. Keep all 10 entries. Paths are relative to the site, so use `images/...` rather than `/images/...`. Until you add images, the game shows the words REAL and AI as placeholders. The left/right order is randomized each round.
+3. Keep all 10 entries. Paths are relative to the site, so use `images/...` rather than `/images/...`. Until you add images, the game shows the Hebrew words for real and AI as placeholders. The left/right order is randomized each round.
 
 Open `index.html` in a browser to play locally.
 

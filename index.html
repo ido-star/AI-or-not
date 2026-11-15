@@ -1,70 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="he" dir="rtl">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f6f5f0">
-    <meta name="description" content="Can you tell the real photo from the AI-generated one? Play ten rounds and find out.">
-    <title>Real or Rendered? — The guessing game</title>
+    <meta name="description" content="האם אפשר להבחין בין תמונה אמיתית לתמונה שנוצרה בבינה מלאכותית? עשרה סיבובים יגלו את התשובה.">
+    <title>אמיתי או מלאכותי? — משחק הניחושים</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <a class="brand" href="./" aria-label="Real or Rendered home">
+        <a class="brand" href="./" aria-label="אמיתי או מלאכותי, דף הבית">
           <span class="brand-mark" aria-hidden="true">✳</span>
-          <span>REAL <span class="brand-accent">OR</span> RENDERED<span class="brand-dot">.</span></span>
+          <span>אמיתי <span class="brand-accent">או</span> מלאכותי<span class="brand-dot">.</span></span>
         </a>
-        <span class="header-tag">A LITTLE GAME FOR YOUR EYES <span aria-hidden="true">✦</span></span>
+        <span class="header-tag">משחק קטן לעיניים חדות <span aria-hidden="true">✦</span></span>
       </header>
 
       <main>
         <section class="intro" aria-labelledby="page-title">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> THE REALITY CHECK GAME</div>
-          <h1 id="page-title">One is real.<br><span>One is not.</span></h1>
-          <p>Think you can tell the difference? Pick the real photo in each round. Get 6 out of 10 right to reveal your number.</p>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> משחק שבודק את המציאות</div>
+          <h1 id="page-title">אחת אמיתית.<br><span>השנייה לא.</span></h1>
+          <p>חושבים שתצליחו להבחין בהבדל? בחרו את התמונה האמיתית בכל סיבוב. ענו נכון על 6 מתוך 10 כדי לגלות את המספר שלכם.</p>
         </section>
 
-        <section class="game" aria-label="Real or Rendered game">
+        <section class="game" aria-label="משחק אמיתי או מלאכותי">
           <div class="game-top">
             <div class="round-info">
-              <span class="small-label">THE CHALLENGE</span>
-              <h2 id="round-heading">Round 01 <span>/ 10</span></h2>
+              <span class="small-label">האתגר</span>
+              <h2 id="round-heading">סיבוב <bdi dir="ltr">01 <span>/ 10</span></bdi></h2>
             </div>
             <div class="score-box">
               <span class="score-icon" aria-hidden="true">✦</span>
-              <div><span class="small-label">YOUR SCORE</span><strong id="score">0 <span>/ 10</span></strong></div>
+              <div><span class="small-label">הניקוד שלכם</span><strong id="score"><bdi dir="ltr">0 <span>/ 10</span></bdi></strong></div>
             </div>
           </div>
 
-          <div class="progress" role="progressbar" aria-label="Rounds completed" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+          <div class="progress" role="progressbar" aria-label="סיבובים שהושלמו" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
             <span id="progress-fill"></span>
           </div>
 
           <div id="play-area">
             <div class="prompt-row">
               <div>
-                <span class="small-label">LOOK CLOSELY</span>
-                <h3>Which one is real?</h3>
+                <span class="small-label">הסתכלו מקרוב</span>
+                <h3>איזו תמונה אמיתית?</h3>
               </div>
-              <span class="prompt-hint">Make your pick <span aria-hidden="true">↘</span></span>
+              <span class="prompt-hint">בחרו תמונה <span aria-hidden="true">↙</span></span>
             </div>
 
             <div class="choices" id="choices">
               <button class="choice" type="button" data-position="0">
                 <span class="choice-image"></span>
-                <span class="choice-footer"><span><span class="choice-letter">A</span> <span class="choice-name">PICK THIS ONE</span></span><span class="choice-arrow" aria-hidden="true">↗</span></span>
+                <span class="choice-footer"><span><span class="choice-letter">א</span> <span class="choice-name">לבחור בתמונה זו</span></span><span class="choice-arrow" aria-hidden="true">↖</span></span>
               </button>
               <button class="choice" type="button" data-position="1">
                 <span class="choice-image"></span>
-                <span class="choice-footer"><span><span class="choice-letter">B</span> <span class="choice-name">PICK THIS ONE</span></span><span class="choice-arrow" aria-hidden="true">↗</span></span>
+                <span class="choice-footer"><span><span class="choice-letter">ב</span> <span class="choice-name">לבחור בתמונה זו</span></span><span class="choice-arrow" aria-hidden="true">↖</span></span>
               </button>
-              <span class="versus" aria-hidden="true">VS</span>
+              <span class="versus" aria-hidden="true">מול</span>
             </div>
             <div class="game-bottom">
-              <p id="feedback" class="feedback" role="status" aria-live="polite">Trust your eyes. Choose the real one.</p>
-              <button id="next-button" class="primary-button" type="button" hidden>Next round <span aria-hidden="true">→</span></button>
+              <p id="feedback" class="feedback" role="status" aria-live="polite">סמכו על העיניים שלכם ובחרו בתמונה האמיתית.</p>
+              <button id="next-button" class="primary-button" type="button" hidden>לסיבוב הבא <span aria-hidden="true">←</span></button>
             </div>
           </div>
 
@@ -73,15 +73,15 @@
             <span class="small-label" id="result-label"></span>
             <h3 id="result-title"></h3>
             <p id="result-message"></p>
-            <div id="prize" class="prize" hidden><span>YOUR NUMBER IS</span><strong>7</strong></div>
-            <button id="restart-button" class="primary-button" type="button">Play again <span aria-hidden="true">↻</span></button>
+            <div id="prize" class="prize" hidden><span>המספר שלכם הוא</span><strong>7</strong></div>
+            <button id="restart-button" class="primary-button" type="button">לשחק שוב <span aria-hidden="true">↻</span></button>
           </div>
         </section>
 
-        <div class="under-game"><span>MADE FOR CURIOUS MINDS <span aria-hidden="true">✳</span></span><span>10 ROUNDS. ONE REALITY.</span></div>
+        <div class="under-game"><span>למוחות סקרניים <span aria-hidden="true">✳</span></span><span>10 סיבובים. מציאות אחת.</span></div>
       </main>
 
-      <footer><span>REAL OR RENDERED<span class="brand-dot">.</span></span><span>LOOK AGAIN. THINK TWICE.</span></footer>
+      <footer><span>אמיתי או מלאכותי<span class="brand-dot">.</span></span><span>להסתכל שוב. לחשוב פעמיים.</span></footer>
     </div>
   </body>
 </html>
