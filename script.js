@@ -1,15 +1,15 @@
 // Add one real and one AI image path for each round. Leave empty for placeholders.
 const rounds = [
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
-  { real: "", ai: "" },
+  { real: "photos/real/denis-zelenykh-gmiw2h3KX98-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_2250nw2250nw2250.jpg" },
+  { real: "photos/real/kate-trysh-ISfkqS5MtHU-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_5pre3d5pre3d5pre.jpg" },
+  { real: "photos/real/national-libary-inside-1979059903.jpg", ai: "photos/AI/Gemini_Generated_Image_991wc5991wc5991w.jpg" },
+  { real: "photos/real/nelson-ndongala-jNUTiYlPMHI-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_bnt4nqbnt4nqbnt4.jpg" },
+  { real: "photos/real/roman-kurnovskii-Skk0vwkV5r0-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_d46dpwd46dpwd46d.jpg" },
+  { real: "photos/real/sean-oulashin-KMn4VEeEPR8-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_2250nw2250nw2250.jpg" },
+  { real: "photos/real/weichao-deng-eyn0LjpNWV4-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_5pre3d5pre3d5pre.jpg" },
+  { real: "photos/real/denis-zelenykh-gmiw2h3KX98-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_991wc5991wc5991w.jpg" },
+  { real: "photos/real/kate-trysh-ISfkqS5MtHU-unsplash.jpg", ai: "photos/AI/Gemini_Generated_Image_bnt4nqbnt4nqbnt4.jpg" },
+  { real: "photos/real/national-libary-inside-1979059903.jpg", ai: "photos/AI/Gemini_Generated_Image_d46dpwd46dpwd46d.jpg" },
 ];
 
 const choices = [...document.querySelectorAll(".choice")];
@@ -79,15 +79,12 @@ function choose(index) {
 }
 
 function showResult() {
-  const won = score >= 6;
   playArea.hidden = true;
   result.hidden = false;
-  document.querySelector("#result-label").textContent = won ? "האתגר הושלם" : "המשחק הסתיים";
-  document.querySelector("#result-title").textContent = won ? "יש לכם עין חדה!" : "ניסיון יפה!";
-  document.querySelector("#result-message").textContent = won
-    ? `עניתם נכון על ${score} מתוך ${rounds.length}. בזכות העין החדה שלכם זכיתם במספר.`
-    : `עניתם נכון על ${score} מתוך ${rounds.length}. צריך לפחות 6 תשובות נכונות כדי לגלות את המספר.`;
-  prize.hidden = !won;
+  document.querySelector("#result-label").textContent = "המשחק הסתיים";
+  document.querySelector("#result-title").textContent = "כל הכבוד ששיחקתם!";
+  document.querySelector("#result-message").textContent = `עניתם נכון על ${score} מתוך ${rounds.length}. הנה המספר שלכם!`;
+  prize.hidden = false;
   document.querySelector("#restart-button").focus();
 }
 
